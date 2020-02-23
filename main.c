@@ -77,17 +77,23 @@ metka=1;
 
 
 int main(){
-	int num=0;
+	int num=0,stop=0;
 char fig[20];
-	
-	for(int i=0; fig[i-1]!=')';i++){
+	do{
+	for(int i=0; fig[i-1]!=')' || fig[i-1]!='0';i++){
 		scanf("%c", &fig[i]);
+		if(fig[i-1]=='0'){
+			stop=1;
+			break;
+		}
 	}
 figure(fig,num);
-printf("\n%f ", A[0][0]);
-printf("\n%f ", A[0][1]);
-printf("\n%f ", A[0][2]);
-printf("\n%f ", A[0][3]);
-printf("\n%f ", A[0][4]);
+num++;
+}while(stop==0);
+for(int i=0;i<num;i++){
+	if((int)A[i][1]==1){
+		printf("%d circle(%.2f %.2f, %.2f)\n",i,A[i][2],A[i][3],A[i][4]);
+	}
+}
 return 1;
 }

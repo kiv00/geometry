@@ -20,6 +20,8 @@ for(int i=0; i<k;i++){
 }
 if(strstr(check, "circle")!=0){
  A[num][1]=1;
+}else{
+ A[num][1]=5;
 }
 if((int)A[num][1]==1){
 	A[num][2]=0;
@@ -123,10 +125,12 @@ for(int i=0;i<num-1;i++){
       if(intersects[i][j]==1){
       	if(A[j][1]==1){
       	printf("%d. circle\n", j+1);
-      }
+	}
 	  }	
 	}
 	printf("\n");
+	} else{
+		printf("error figure\n");
 	}
 }
 return 1;

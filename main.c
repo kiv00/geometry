@@ -5,7 +5,7 @@
 #include "arper.h"
 
 
-void figure(char* fig,int num, float* A[5])
+void figure(char* fig,int num, float (*A)[10])
 {
     int k = 0, yes = 0;
     float metka = 1;
@@ -75,7 +75,7 @@ void figure(char* fig,int num, float* A[5])
     }
 }
 
-void intersect(int num, int* intersects[10], float* A[5])
+void intersect(int num, int (*intersects)[5], float (*A)[10])
 {
     float sum, ras;
     for (int i = 0; i < num - 1; i++) {  
@@ -107,7 +107,7 @@ int main()
                 break;
             }
         }
-        figure(fig,num, A[num]);
+        figure(fig,num, A);
         num++;
     } while (stop == 0);
     for (int i = 0; i < num - 1; i++) {
@@ -115,7 +115,7 @@ int main()
             intersects[i][j] = 0;
         }
     }
-    intersect(num - 1,intersects,A[num]);
+    intersect(num - 1,intersects,A);
     for (int i = 0; i < num - 1; i++) {
         if ((int)A[i][1] == 1) {
             printf("%d. circle(%.2f %.2f, %.2f)\n",

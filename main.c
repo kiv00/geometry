@@ -125,7 +125,7 @@ int main()
                    A[i][3],
                    A[i][4]);
             area = area(A[i][4]);
-            perimeter=perimetr(A[i][4]);
+            perimeter=perimeter(A[i][4]);
             printf("perimeter = %.3f\narea = %.3f\nintersects:\n",
                    perimeter,
                    area);

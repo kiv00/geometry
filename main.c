@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "arper.h"
+#include "area.h"
+#include "perimeter.h"
 
 
 void figure(char* fig,int num, float (*A)[10])

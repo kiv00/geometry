@@ -75,7 +75,7 @@ void figure(char* fig, int num,float **A)
     }
 }
 
-void intersect(int num, int **A)
+void intersect(int num, int **intersects, float **A)
 {
     float sum, ras;
     for (int i = 0; i < num - 1; i++) {  
@@ -115,7 +115,7 @@ int main()
             intersects[i][j] = 0;
         }
     }
-    intersect(num - 1,intersects);
+    intersect(num - 1,intersects,A);
     for (int i = 0; i < num - 1; i++) {
         if ((int)A[i][1] == 1) {
             printf("%d. circle(%.2f %.2f, %.2f)\n",
@@ -126,8 +126,8 @@ int main()
             area = area(A[i][4]);
             perimeter=perimetr(A[i][4]);
             printf("perimeter = %.3f\narea = %.3f\nintersects:\n",
-                   perimeter[i],
-                   area[i]);
+                   perimeter,
+                   area);
             for (int j = 0; j < num - 1; j++) {
                 if (intersects[i][j] == 1) {
                     if (A[j][1] == 1) {

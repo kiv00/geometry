@@ -1,1 +1,12 @@
 language: cpp
+
+compiler:
+  - gcc
+
+os: [
+    windows
+  ],
+
+build:
+  ci:
+  - make test

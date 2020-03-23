@@ -1,2 +1,8 @@
+HEADER = area.h
+HEADER = perimeter.h
+
 main.exe: main.c
-	gcc -Wall -o main.exe main.c -lm
+	gcc -Wall -Werror -o main.exe main.c -lm
+
+clean:
+	rm -rf *o hello

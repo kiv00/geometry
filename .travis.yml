@@ -1,3 +1,2 @@
-language: cpp
-os: windows
-dist: xenial
+language: C
+script: make

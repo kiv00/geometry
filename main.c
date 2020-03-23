@@ -5,7 +5,7 @@
 #include "arper.h"
 
 
-void figure(char* fig, int num,float **A)
+void figure(char* fig,int num, float** A)
 {
     int k = 0, yes = 0;
     float metka = 1;
@@ -75,7 +75,7 @@ void figure(char* fig, int num,float **A)
     }
 }
 
-void intersect(int num, int **intersects, float **A)
+void intersect(int num, int** intersects, float** A)
 {
     float sum, ras;
     for (int i = 0; i < num - 1; i++) {  
@@ -107,7 +107,7 @@ int main()
                 break;
             }
         }
-        figure(fig, num, A);
+        figure(fig,num, A);
         num++;
     } while (stop == 0);
     for (int i = 0; i < num - 1; i++) {

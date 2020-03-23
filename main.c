@@ -107,7 +107,7 @@ int main()
                 break;
             }
         }
-        figure(fig,num, A);
+        figure(fig,num, A[num]);
         num++;
     } while (stop == 0);
     for (int i = 0; i < num - 1; i++) {
@@ -115,7 +115,7 @@ int main()
             intersects[i][j] = 0;
         }
     }
-    intersect(num - 1,intersects,A);
+    intersect(num - 1,intersects,A[num]);
     for (int i = 0; i < num - 1; i++) {
         if ((int)A[i][1] == 1) {
             printf("%d. circle(%.2f %.2f, %.2f)\n",

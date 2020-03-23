@@ -2,11 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "arper.h"
 
-float A[5][10];
-int intersects[5][5];
 
-void figure(char* fig, int num)
+void figure(char* fig, int num,float **A)
 {
     int k = 0, yes = 0;
     float metka = 1;
@@ -76,7 +75,7 @@ void figure(char* fig, int num)
     }
 }
 
-void intersect(int num)
+void intersect(int num, int **A)
 {
     float sum, ras;
     for (int i = 0; i < num - 1; i++) {  
@@ -95,8 +94,10 @@ void intersect(int num)
 
 int main()
 {
+	float A[5][10];
+    int intersects[5][5];
     int num = 0, stop = 0;
-    float area[5], perimeter[5];
+    float area, perimeter;
     char fig[20];
     do {
         for (int i = 0; fig[i - 1] != 41; i++) {
@@ -106,7 +107,7 @@ int main()
                 break;
             }
         }
-        figure(fig, num);
+        figure(fig, num, A);
         num++;
     } while (stop == 0);
     for (int i = 0; i < num - 1; i++) {
@@ -114,7 +115,7 @@ int main()
             intersects[i][j] = 0;
         }
     }
-    intersect(num - 1);
+    intersect(num - 1,intersects);
     for (int i = 0; i < num - 1; i++) {
         if ((int)A[i][1] == 1) {
             printf("%d. circle(%.2f %.2f, %.2f)\n",
@@ -122,8 +123,8 @@ int main()
                    A[i][2],
                    A[i][3],
                    A[i][4]);
-            area[i] = 3.14 * 3.14 * A[i][4];
-            perimeter[i] = 2 * 3.14 * A[i][4];
+            area = area(A[i][4]);
+            perimeter=perimetr(A[i][4]);
             printf("perimeter = %.3f\narea = %.3f\nintersects:\n",
                    perimeter[i],
                    area[i]);

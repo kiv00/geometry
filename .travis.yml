@@ -1,3 +1,9 @@
 language: C
+
+sudo: required
+
+services:
+- docker
+
 script: 
-  - make --build
+  - make

@@ -1,2 +1,2 @@
 language: C
-script: Makefile
+script: make

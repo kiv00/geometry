@@ -16,3 +16,6 @@ addons:
 script:
   - sudo ln -s /usr/bin/gcc-6 /usr/local/bin/gcc
   - sudo ln -s /usr/bin/g++-6 /usr/local/bin/g++
+  - export CC=gcc-7
+  - export CXX=g++-7
+  - cmake --version

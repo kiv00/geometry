@@ -16,5 +16,3 @@ addons:
 script:
   - sudo ln -s /usr/bin/gcc-6 /usr/local/bin/gcc
   - sudo ln -s /usr/bin/g++-6 /usr/local/bin/g++
-  - CXX=/usr/bin/g++-6 CC=/usr/bin/gcc-6 cmake .
-  - cmake  --build . -- -j2

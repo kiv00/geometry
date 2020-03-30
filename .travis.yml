@@ -1,4 +1,4 @@
 language: C
 install:
-  - make install
+  - Makefile install
 script: make

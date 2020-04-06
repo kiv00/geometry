@@ -1,24 +1,16 @@
 DEPS = area.h
 DEPS = perimeter.h
-
-UNAME=$(shell uname)
-
-CCFLAGS=-Wall -Wextra -Wconversion -Wredundant-decls -Wshadow -Wno-unused-parameter -O3
-CC=clang
+main.exe: src\main.c
+    gcc -Wall -Werror -o main.exe src\main.c -lm
 
 all: test
 
 remake: clean all
 
 %.o: %.c ctest.h
-	$(CC) $(CCFLAGS) -c -o $@ $<
+    $(CC) $(CCFLAGS) -c -o $@ $<
 
 test: main.o ctest.h mytests.o
-	$(CC) $(LDFLAGS) main.o mytests.o -o test
-
-
-main.exe: src\main.c
-	gcc -Wall -Werror -o main.exe src\main.c -lm
-	
+    $(CC) $(LDFLAGS) main.o mytests.o -o test
 clean:
-	rm -rf *o hello
+    rm -rf *o hello

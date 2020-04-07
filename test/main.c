@@ -95,7 +95,7 @@ void intersect(int num, int (*intersects)[5], float (*A)[10])
     }
 }
 
-int main()
+int main(int argc, const char** argv)
 {
 	float A[5][10];
     int intersects[5][5];

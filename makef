@@ -8,9 +8,11 @@ remake: clean all
 %.o: %.c ctest.h
 	$(CC) $(CCFLAGS) -c -o $@ $<
 
-main.exe: src/main.c
-	gcc -Wall -Werror -o main.exe src/main.c -lm
+main.exe: src/main.c src/func.c
+	gcc -Wall -Werror -o main.exe src/main.c src/func.c -lm
 
+main.o: src/main.c
+	gcc -Wall -Werror -o -c build/src/main.o src/main.c -lm
 
 test: main.o ctest.h mytests.o
 	$(CC) $(LDFLAGS) main.o mytests.o -o test

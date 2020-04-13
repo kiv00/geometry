@@ -3,11 +3,6 @@ DEPS = perimeter.h
 
 
 
-remake: clean all
-
-%.o: %.c ctest.h
-	$(CC) $(CCFLAGS) -c -o $@ $<
-
 main.exe: src/main.c src/func.c
 	gcc -Wall -Werror -o main.exe src/main.c src/func.c -lm
 

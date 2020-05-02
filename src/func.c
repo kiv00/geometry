@@ -7,12 +7,20 @@
 
 float perimeters(float r){
 	if(r<0) r*=-1;
+	if(r==0) {
+		printf("error");
+		return 0;
+	}
 	float perimetr=3.14*r*2;
 	return perimetr;
 }
 
 float areas(float r){
 	if(r<0) r*=-1;
+	if(r==0) {
+		printf("error");
+		return 0;
+	}
 	float ar=3.14*r*r;
 	return ar;
 }

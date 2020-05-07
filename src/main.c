@@ -54,5 +54,6 @@ int main()
             printf("error figure\n");
         }
     }
+    system("PAUSE");
     return 1;
 }

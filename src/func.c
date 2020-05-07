@@ -1,9 +1,9 @@
-
+#include "func.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "func.h"
+
 
 float perimeters(float r){
 	if(r<0) r*=-1;
@@ -99,6 +99,7 @@ void intersect(int num, int (*intersects)[5], float (*A)[10])
 {
     float sum, ras;
     for (int i = 0; i < num - 1; i++) {  
+    	intersects[i][i] = 0;
         for (int j = i + 1; j < num; j++) {
             sum = A[i][4] + A[j][4];
             ras
@@ -108,6 +109,10 @@ void intersect(int num, int (*intersects)[5], float (*A)[10])
                 intersects[i][j] = 1;
                 intersects[j][i] = 1;
             }
+            else{
+            	intersects[i][j] = 0;
+                intersects[j][i] = 0;
+			}
         }
     }
 }

@@ -1,14 +1,12 @@
+#include "func.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "func.h"
-
-
 
 int main()
 {
-	float A[5][10];
+    float A[5][10];
     int intersects[5][5];
     int num = 0, stop = 0;
     float area, perimeter;
@@ -21,7 +19,7 @@ int main()
                 break;
             }
         }
-        figure(fig,num, A);
+        figure(fig, num, A);
         num++;
     } while (stop == 0);
     for (int i = 0; i < num - 1; i++) {
@@ -29,7 +27,7 @@ int main()
             intersects[i][j] = 0;
         }
     }
-    intersect(num - 1,intersects,A);
+    intersect(num - 1, intersects, A);
     for (int i = 0; i < num - 1; i++) {
         if ((int)A[i][1] == 1) {
             printf("%d. circle(%.2f %.2f, %.2f)\n",
@@ -38,7 +36,7 @@ int main()
                    A[i][3],
                    A[i][4]);
             area = areas(A[i][4]);
-            perimeter=perimeters(A[i][4]);
+            perimeter = perimeters(A[i][4]);
             printf("perimeter = %.3f\narea = %.3f\nintersects:\n",
                    perimeter,
                    area);

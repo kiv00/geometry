@@ -4,28 +4,31 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-float perimeters(float r){
-	if(r<0) r*=-1;
-	if(r==0) {
-		printf("error");
-		return 0;
-	}
-	float perimetr=3.14*r*2;
-	return perimetr;
+float perimeters(float r)
+{
+    if (r < 0)
+        r *= -1;
+    if (r == 0) {
+        printf("error");
+        return 0;
+    }
+    float perimetr = 3.14 * r * 2;
+    return perimetr;
 }
 
-float areas(float r){
-	if(r<0) r*=-1;
-	if(r==0) {
-		printf("error");
-		return 0;
-	}
-	float ar=3.14*r*r;
-	return ar;
+float areas(float r)
+{
+    if (r < 0)
+        r *= -1;
+    if (r == 0) {
+        printf("error");
+        return 0;
+    }
+    float ar = 3.14 * r * r;
+    return ar;
 }
 
-void figure(char* fig,int num, float (*A)[10])
+void figure(char* fig, int num, float (*A)[10])
 {
     int k = 0, yes = 0;
     float metka = 1;
@@ -33,7 +36,7 @@ void figure(char* fig,int num, float (*A)[10])
         k = i + 1;
     }
     char check[k];
-    for (int i = 0; i < k; i++) { //check figure
+    for (int i = 0; i < k; i++) { // check figure
         check[i] = fig[i];
     }
     if (strstr(check, "circle") != 0) {
@@ -41,13 +44,13 @@ void figure(char* fig,int num, float (*A)[10])
     } else {
         A[num][1] = 5;
     }
-    if ((int)A[num][1] == 1) { //parameters figure
+    if ((int)A[num][1] == 1) { // parameters figure
         A[num][2] = 0;
         A[num][3] = 0;
         A[num][4] = 0;
         yes = 0;
         metka = 1;
-        for (int i = k + 1; (float)fig[i] > 45 && (float)fig[i] < 58; i++) { //x
+        for (int i = k + 1; (float)fig[i] > 45 && (float)fig[i] < 58; i++) { // x
             k = i + 1;
             if (fig[i] > 47) {
                 A[num][2] = A[num][2] * 10 + (float)fig[i] - 48;
@@ -62,7 +65,7 @@ void figure(char* fig,int num, float (*A)[10])
         }
         yes = 0;
         metka = 1;
-        for (int i = k + 1; (float)fig[i] > 45 && (float)fig[i] < 58; i++) { //y
+        for (int i = k + 1; (float)fig[i] > 45 && (float)fig[i] < 58; i++) { // y
             k = i + 1;
             if (fig[i] > 47) {
                 A[num][3] = A[num][3] * 10 + (float)fig[i] - 48;
@@ -77,7 +80,7 @@ void figure(char* fig,int num, float (*A)[10])
         }
         yes = 0;
         metka = 1;
-        for (int i = k + 2; (float)fig[i] > 45 && (float)fig[i] < 58; i++) { //r
+        for (int i = k + 2; (float)fig[i] > 45 && (float)fig[i] < 58; i++) { // r
             k = i + 1;
             if (fig[i] > 47) {
                 A[num][4] = A[num][4] * 10 + (float)fig[i] - 48;
@@ -98,8 +101,8 @@ void figure(char* fig,int num, float (*A)[10])
 void intersect(int num, int (*intersects)[5], float (*A)[10])
 {
     float sum, ras;
-    for (int i = 0; i < num - 1; i++) {  
-    	intersects[i][i] = 0;
+    for (int i = 0; i < num - 1; i++) {
+        intersects[i][i] = 0;
         for (int j = i + 1; j < num; j++) {
             sum = A[i][4] + A[j][4];
             ras
@@ -108,13 +111,10 @@ void intersect(int num, int (*intersects)[5], float (*A)[10])
             if (ras < sum) {
                 intersects[i][j] = 1;
                 intersects[j][i] = 1;
-            }
-            else{
-            	intersects[i][j] = 0;
+            } else {
+                intersects[i][j] = 0;
                 intersects[j][i] = 0;
-			}
+            }
         }
     }
 }
-
-

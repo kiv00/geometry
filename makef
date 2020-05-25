@@ -1,5 +1,6 @@
 all: bin/main.exe
 test: bin/test.exe
+.PHONY: clean
 
 bin/test.exe: build/test/main.o build/test/test_func.o build/src/func.o 
 	gcc -Wall -I src -Werror -o bin/test.exe build/test/main.o build/src/func.o build/test/test_func.o -lm

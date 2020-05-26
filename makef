@@ -1,6 +1,6 @@
 .PHONY: clean
-all: ./bin/main
-test: ./bin/test
+all: ./bin/test
+test: ./bin/main
 
 
 ./bin/test: ./build/test/main.o ./build/test/test_func.o ./build/src/func.o 

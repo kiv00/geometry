@@ -1,12 +1,14 @@
-all: bin/main.exe
-test: bin/test.exe
 .PHONY: clean
+all: bin/main
+test: bin/test
 
-bin/test.exe: build/test/main.o build/test/test_func.o build/src/func.o 
-	gcc -Wall -I src -Werror -o bin/test.exe build/test/main.o build/src/func.o build/test/test_func.o -lm
 
-bin/main.exe: build/src/main.o build/src/func.o
-	gcc -Wall -Werror -o bin/main.exe build/src/main.o build/src/func.o -lm
+bin/test: build/test/main.o build/test/test_func.o build/src/func.o 
+	gcc -Wall -I src -Werror -o bin/test build/test/main.o build/src/func.o build/test/test_func.o -lm
+	./bin/test
+
+bin/main: build/src/main.o build/src/func.o
+	gcc -Wall -Werror -o bin/main build/src/main.o build/src/func.o -lm
 
 build/src/main.o: src/main.c
 	gcc -c -o build/src/main.o src/main.c -lm

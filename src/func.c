@@ -50,7 +50,8 @@ void figure(char* fig, int num, float (*A)[10])
         A[num][4] = 0;
         yes = 0;
         metka = 1;
-        for (int i = k + 1; (float)fig[i] > 45 && (float)fig[i] < 58; i++) { // x
+        for (int i = k + 1; (float)fig[i] > 45 && (float)fig[i] < 58;
+             i++) { // x
             k = i + 1;
             if (fig[i] > 47) {
                 A[num][2] = A[num][2] * 10 + (float)fig[i] - 48;
@@ -65,7 +66,8 @@ void figure(char* fig, int num, float (*A)[10])
         }
         yes = 0;
         metka = 1;
-        for (int i = k + 1; (float)fig[i] > 45 && (float)fig[i] < 58; i++) { // y
+        for (int i = k + 1; (float)fig[i] > 45 && (float)fig[i] < 58;
+             i++) { // y
             k = i + 1;
             if (fig[i] > 47) {
                 A[num][3] = A[num][3] * 10 + (float)fig[i] - 48;
@@ -80,7 +82,8 @@ void figure(char* fig, int num, float (*A)[10])
         }
         yes = 0;
         metka = 1;
-        for (int i = k + 2; (float)fig[i] > 45 && (float)fig[i] < 58; i++) { // r
+        for (int i = k + 2; (float)fig[i] > 45 && (float)fig[i] < 58;
+             i++) { // r
             k = i + 1;
             if (fig[i] > 47) {
                 A[num][4] = A[num][4] * 10 + (float)fig[i] - 48;

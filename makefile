@@ -1,5 +1,5 @@
 .PHONY: clean
-all: ./bin/main
+all: ./bin/main ./bin/test
 test: ./bin/test
 
 

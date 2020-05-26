@@ -1,22 +1,10 @@
-dist: trusty
-sudo: false
-
-language: C
-
-
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - gcc-6
-      - g++-6
-      - cmake
+language: c
 
 script:
-  - sudo ln -s /usr/bin/gcc-6 /usr/local/bin/gcc
-  - sudo ln -s /usr/bin/g++-6 /usr/local/bin/g++
-  - export CC=gcc-7
-  - export CXX=g++-7
-  - cmake --version
+  - make 
   - git ls-files src/ | xargs clang-format -i && git diff --exit-code
+  - git ls-files test/ | xargs clang-format -i && git diff --exit-code
+
+compiler: gcc
+
+dist: xenial
